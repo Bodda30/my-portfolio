@@ -1,0 +1,260 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh17440\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Updating the entire HTML content with the new Formspree endpoint for the contact form\
+\
+html_content_final_updated = """\
+<!DOCTYPE html>\
+<html lang="en">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">\
+    <title>Abdelrahman Reda | Portfolio</title>\
+    <style>\
+        /* Global Styles */\
+        body \{\
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\
+            background-color: #F4ECE1;\
+            margin: 0;\
+            padding: 0;\
+            line-height: 1.6;\
+            transition: background-color 0.5s ease;\
+        \}\
+\
+        header \{\
+            background-color: #A67B5B;\
+            color: #FFF8E7;\
+            text-align: center;\
+            padding: 2rem;\
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\
+        \}\
+\
+        nav ul \{\
+            list-style-type: none;\
+            padding: 0;\
+        \}\
+\
+        nav ul li \{\
+            display: inline;\
+            margin-right: 20px;\
+        \}\
+\
+        nav ul li a \{\
+            color: #FFF8E7;\
+            text-decoration: none;\
+            font-weight: bold;\
+            transition: color 0.3s ease;\
+        \}\
+\
+        nav ul li a:hover \{\
+            color: #D9C1A7;\
+        \}\
+\
+        section \{\
+            padding: 3rem;\
+            animation: fadeIn 1s ease-in-out;\
+        \}\
+\
+        .container \{\
+            max-width: 1000px;\
+            margin: 0 auto;\
+        \}\
+\
+        /* Section Styles */\
+        .skills, .experience, .contact \{\
+            background-color: #FFF8E7;\
+            margin: 2rem auto;\
+            padding: 2rem;\
+            border-radius: 12px;\
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);\
+            transition: transform 0.3s ease;\
+        \}\
+\
+        .skills:hover, .experience:hover, .contact:hover \{\
+            transform: translateY(-10px);\
+        \}\
+\
+        h2 \{\
+            color: #A67B5B;\
+            text-transform: uppercase;\
+        \}\
+\
+        h3 \{\
+            color: #8B5E34;\
+        \}\
+\
+        p \{\
+            color: #5F4A3C;\
+        \}\
+\
+        /* Skill Descriptions */\
+        .skill-item \{\
+            margin-bottom: 1rem;\
+        \}\
+\
+        .skill-item h4 \{\
+            margin-bottom: 0.5rem;\
+        \}\
+\
+        .skill-item p \{\
+            margin-bottom: 1rem;\
+        \}\
+\
+        /* Contact Form */\
+        .contact-form input, .contact-form textarea \{\
+            width: 100%;\
+            padding: 0.8rem;\
+            margin: 0.5rem 0;\
+            border: 1px solid #D1B49C;\
+            border-radius: 8px;\
+        \}\
+\
+        /* Footer */\
+        footer \{\
+            background-color: #333;\
+            color: white;\
+            text-align: center;\
+            padding: 1rem;\
+        \}\
+\
+        /* Transitions and Animations */\
+        @keyframes fadeIn \{\
+            from \{ opacity: 0; \}\
+            to \{ opacity: 1; \}\
+        \}\
+\
+        /* Responsive Design */\
+        @media (max-width: 768px) \{\
+            header \{\
+                padding: 1rem;\
+            \}\
+\
+            section \{\
+                padding: 1.5rem;\
+            \}\
+\
+            nav ul li \{\
+                display: block;\
+                margin: 0.5rem 0;\
+            \}\
+\
+            .skills, .experience, .contact \{\
+                margin: 1rem auto;\
+                padding: 1.5rem;\
+            \}\
+        \}\
+    </style>\
+</head>\
+<body>\
+    <header>\
+        <h1>Abdelrahman Reda</h1>\
+        <p>Information Systems Specialist | Digital Marketing Expert | PR Agent</p>\
+        <nav>\
+            <ul>\
+                <li><a href="#about">About Me</a></li>\
+                <li><a href="#skills">Skills</a></li>\
+                <li><a href="#experience">Experience</a></li>\
+                <li><a href="#contact">Contact</a></li>\
+            </ul>\
+        </nav>\
+    </header>\
+\
+    <section id="about" class="container">\
+        <h2>About Me</h2>\
+        <p>Hello! I am Abdelrahman Reda, a fourth-year Information Systems student at the Higher Institute of Qualitative Studies in Giza. I have a passion for technology, digital marketing, and public relations. With a solid foundation in technical skills and a creative mindset, I aim to help businesses succeed in the digital world. Fluent in English and Arabic, I\'92m always eager to learn and embrace new challenges.</p>\
+    </section>\
+\
+    <section id="skills" class="skills container">\
+        <h2>Skills</h2>\
+        <div class="skill-item">\
+            <h4>Programming Languages</h4>\
+            <p>Proficient in Python, Java, and C++. I use programming to solve complex problems and develop efficient solutions.</p>\
+        </div>\
+        <div class="skill-item">\
+            <h4>Penetration Testing</h4>\
+            <p>Experienced in identifying vulnerabilities in systems and ensuring they are secure from potential threats.</p>\
+        </div>\
+        <div class="skill-item">\
+            <h4>Microsoft Office Suite</h4>\
+            <p>Advanced proficiency in Word, Excel, and PowerPoint. I use these tools to organize, analyze, and present data efficiently.</p>\
+        </div>\
+        <div class="skill-item">\
+            <h4>Adobe Creative Suite</h4>\
+            <p>Skilled in graphic design and photo editing using Photoshop and Illustrator, enabling me to create visually appealing content.</p>\
+        </div>\
+        <div class="skill-item">\
+            <h4>SEO & SEM</h4>\
+            <p>Deep understanding of search engine optimization and marketing strategies to enhance web visibility and engagement.</p>\
+        </div>\
+        <div class="skill-item">\
+            <h4>Teamwork & Multitasking</h4>\
+            <p>Strong collaborative skills with the ability to manage multiple tasks simultaneously while maintaining high quality and efficiency.</p>\
+        </div>\
+    </section>\
+\
+    <section id="experience" class="experience container">\
+        <h2>Work Experience</h2>\
+        <h3>Sales Employee, Way Hub, Nasr City (April 2020)</h3>\
+        <p>Increased sales by 20%, managed inventory, and collaborated with the marketing team to develop promotional campaigns.</p>\
+\
+        <h3>Freelance Sales (2022)</h3>\
+        <p>Managed client relationships and executed effective digital marketing strategies for various clients, boosting engagement and revenue.</p>\
+\
+        <h3>Digital Marketing Agent, Freelancer, Cairo (2023)</h3>\
+        <p>Planned and executed data-driven marketing campaigns across multiple platforms. Leveraged SEO techniques to improve visibility.</p>\
+\
+        <h3>English Customer Service Agent, Amazon UK (2024)</h3>\
+        <p>Provided high-quality customer support in English, addressing inquiries and resolving issues efficiently, enhancing customer satisfaction.</p>\
+\
+        <h3>PR Agent (2023)</h3>\
+        <p>Managed and improved public relations strategies for clients, creating positive narratives and handling media communications.</p>\
+\
+        <h3>Direct Marketing Agent (2019)</h3>\
+        <p>Executed direct marketing campaigns, enhancing client outreach and engagement through effective communication strategies.</p>\
+\
+        <h3>Tour Guide (2023-2024)</h3>\
+        <p>Conducted guided tours in English, providing insightful information about local culture and history, ensuring an enriching experience for tourists.</p>\
+    </section>\
+\
+    <section id="contact" class="contact container">\
+        <h2>Contact Me</h2>\
+        <form class="contact-form" action="https://formspree.io/f/mblrngla" method="POST">\
+            <label>\
+                Your Name:\
+                <input type="text" name="name" placeholder="Your Name" required>\
+            </label>\
+            <label>\
+                Your Email:\
+                <input type="email" name="email" placeholder="Your Email" required>\
+            </label>\
+            <label>\
+                Your Message:\
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>\
+            </label>\
+            <button type="submit">Send</button>\
+        </form>\
+        <p>Email: abdobodda33@gmail.com</p>\
+        <p>Phone: +201040541153</p>\
+        <p>Location: Shoubra, Cairo, Egypt</p>\
+    </section>\
+\
+    <footer>\
+        <p>&copy; 2024 Abdelrahman Reda. All rights reserved.</p>\
+    </footer>\
+\
+</body>\
+</html>\
+"""\
+\
+# Save the updated HTML content as a file with the new Formspree endpoint\
+output_path_final_updated = "/mnt/data/abdelrahman_portfolio_final_with_endpoint.html"\
+with open(output_path_final_updated, "w") as file:\
+    file.write(html_content_final_updated)\
+\
+output_path_final_updated\
+}
